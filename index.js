@@ -1,4 +1,32 @@
-// uor web apps firebas configuration
+const navSlide = () => {
+    const menu = document.querySelector('.menu');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li')
+    
+    
+    
+    menu.addEventListener('click', () => {
+        // toggle nav
+        nav.classList.toggle('nav-active');
+        
+        // animate links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index/7 + 0.5}s`;
+            }
+        });
+        //MENU  ANIMATION
+        menu.classList.toggle('toggle');
+    });
+   
+
+}
+
+navSlide();
+
+// yuor web apps firebas configuration
 var firebaseConfig = {
   apiKey: "AIzaSyA5nfj3AyXSZRkcNru-MfZiPqCPbQ6tK90",
   authDomain: "firbase-database-d984f.firebaseapp.com",
