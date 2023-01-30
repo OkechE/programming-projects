@@ -1,0 +1,149 @@
+*{
+	font-family: 'Poppins', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+:root{
+	--orange:#FF9814;
+
+}
+
+*::selection{
+	background:var(--orange);
+	color:whitesmoke;
+}
+
+html{
+	font-size: 62.5%;
+	overflow-x: hidden;
+}
+
+header{
+	position: fixed;
+	top: 0; left: 0;
+	z-index: 1000;
+	background: whitesmoke;
+	box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+	width:100%;
+	/* display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	background-color:chocolate;
+	font-family: 'Poppins', sans-serif; */
+}
+
+header .heading{
+	font-size: 3rem;
+	color:#181818;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	text-align: center;
+	
+}
+
+header #menu{
+	font-size: 3rem;
+	color: #181818;
+	cursor: pointer;
+	margin: 1rem;
+	display: none;
+}
+
+header .nav-links ul{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	background: chocolate;
+	padding: 1rem;
+}
+
+header .nav-links ul li{
+	margin: 0 1.5rem;
+}
+
+header .nav-links ul li a{
+	color: whitesmoke;
+	text-decoration: none;
+	letter-spacing: 3px;
+	font-size: 2rem;
+}
+
+header .nav-links ul li a:hover{
+	color:#181818;
+}
+
+
+@media (max-width: 768px){
+	
+	html{
+		font-size: 55%;
+	}
+}
+@media (max-width: 500px){
+	
+	html{
+		font-size: 50%;
+	}
+
+	header{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 1rem;
+	}
+
+	header #menu{
+		display: block;
+	}
+
+	/* body{
+		overflow-x: hidden;
+	}
+	.nav-links{
+		position: absolute;
+		right: 0px;
+		height: 92vh;
+		top: 8vh;
+		background-color: chocolate;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+		
+	}
+	.nav-links li{
+		opacity: 0;
+	} */
+
+}
+
+.nav-active{
+	transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.toggle .line1{
+	transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+	opacity: 0;
+}
+.toggle .line3{
+	transform: rotate(45deg) translate(-5px,-6px);
+}

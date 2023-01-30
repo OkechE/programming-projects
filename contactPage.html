@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ucf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Me</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href="css/index.css">
+        
+    </head>
+    <body>
+
+        <header>
+
+            <h1 class="heading">contact me</h1>
+
+            <div id="menu" class="fas fa-bars"></div>
+
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="homePage.html">Home</a></li>
+                    <li><a href="aboutPage.html">About Me</a></li>
+                    <li><a href="projectsPage.html">My Projects</a></li>
+                    <li><a href="contactPage.html">Contact Me</a></li>
+                </ul>
+            </nav>
+
+        </header>
+<!-- Header section starts -->
+
+<!-- Contact section start -->
+
+        <section class="contact">
+
+            <form action="">
+
+                <input type="text" class="box" id="full_name" placeholder="name">
+                <input type="text" class="box" id="email" placeholder="email">
+                <input type="tel" class="box" id="phone_number" placeholder="phone number">
+                <textarea name="" id="message" cols="30" rows="10" class="box message" placeholder="message"></textarea>
+
+                <input type="submit" class="btn" value="send message" onclick="register()">
+    
+            </form>
+    
+            <div class="content">
+    
+                <h3>contact me :)</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deserunt velit esse quam, autem quia?</p>
+                <div class="icons">
+                    <i class="fas fa-map-marker-alt"></i> Cedar hill, Texas
+                </div>
+                <div class="icons">
+                    <i class="fas fa-globe"></i> www.mywebsite.com
+                </div>
+                <div class="icons">
+                    <i class="fas fa-phone"></i> (682)433-7092
+                </div>
+    
+            </div>
+
+        </section>
+
+<!-- Contact section end -->
+        <!-- <section>
+
+            <div id="content_container">
+                <div id="form_content_container">
+                    <div id="form_content_inner_container">
+                        <input type="text" id="full_name" placeholder="Full Name">
+                        
+                        <input type="email" id="email" placeholder="Email">
+                        <input type="password" id="password" placeholder="New Password">
+
+                        <input type="text" id="favorite_song" placeholder="The Best Song Ever">
+                        <input type="text" id="milk_before_cereal" placeholder="Milk Before Cereal? ( Yes | No )">
+
+                        <div id="button_container">
+                            <button onclick="register()">Send Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </section> -->
+            
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="javascript/index.js"></script>
+
+    </body>
+</html>

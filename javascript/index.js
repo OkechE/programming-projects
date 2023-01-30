@@ -1,32 +1,13 @@
-const navSlide = () => {
-    const menu = document.querySelector('.menu');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li')
-    
-    
-    
-    menu.addEventListener('click', () => {
-        // toggle nav
-        nav.classList.toggle('nav-active');
-        
-        // animate links
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index/7 + 0.5}s`;
-            }
-        });
-        //MENU  ANIMATION
-        menu.classList.toggle('toggle');
+$(document).ready(function(){
+
+    $('#menu').click(function(){
+        $(this).toggleClass('fa-times');
+        $('.nav-links').toggleClass('nav-toggle')
     });
-   
 
-}
+});
 
-navSlide();
-
-// yuor web apps firebas configuration
+// your web apps firebas configuration
 var firebaseConfig = {
   apiKey: "AIzaSyA5nfj3AyXSZRkcNru-MfZiPqCPbQ6tK90",
   authDomain: "firbase-database-d984f.firebaseapp.com",
@@ -36,34 +17,31 @@ var firebaseConfig = {
   appId: "1:600168655826:web:5effe31b88d78c341c360b"
 };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig); 
+firebase.initializeApp(firebaseConfig); 
 // Inittialize Variables
 const auth = firebase.auth()
 const database = firebase.database()
 
 // Set up register function
-function register () {
+function register (e) {
+    e.preventDefault()
+    debugger
     // Get all our input fields
-    email = document.getElementById('email').value
-    password = document.getElementById('password').value
     full_name = document.getElementById('full_name').value
-    favorite_song = document.getElementById('favorite_song').value
-    milk_before_cereal = document.getElementById('milk_before_cereal').value
+    email = document.getElementById('email').value
+    phone_number = document.getElementById('phone_number').value
+    message = document.getElementById('message').value
 
     // Validate input feilds
-    if (validate_email(email) == false || validate_password(password) == false) {
-        alert('Email or password is incorrect')
-        return
-        // Don't return the code
-    }
-    if (validate_field(full_name) == false || validate_field(favorite_song) == false || validate_field(milk_before_cereal) == false){
+    if (validate_field(full_name) == false || validate_email(email) == false || validate_field(phone_number) == false || validate_password(message) == false){
         alert('One or more extra fields are incorrect')
         return
     }
-    
+
     //Move on with auth
-    auth.createUserWithEmailAndPassword(email,password)
-    .then(function(){
+    auth.createUserWithEmailAndPassword(email,message)
+    .then((res) => {
+        console.log(res)
         // Declare user variable 
         var user = auth.currentUser
 
@@ -72,22 +50,22 @@ function register () {
 
         // Create user data
         var user_data = {
-            email : email,
             full_name : full_name,
-            favorite_song : favorite_song,
-            milk_before_cereal : milk_before_cereal,
+            email : email,
+            phone_number : phone_number,
+            message : message,
             last_login : Date.now()
         }
         
         database_ref.child('users/' + user.uid).set(user_data)
 
-        alert('User Created!')
+        alert('message sent')
 
     })
-    .catch(function(error) {
+    .catch((err) => {
         // Firebase will use this to alert of its errors
-        var error_code = error_code
-        var error_message = error_message
+        var error_code = err.error_code
+        var error_message = err.error_message
 
         alert(error_message)
     })
@@ -143,14 +121,14 @@ function validate_email(email) {
     }
 }
 
-function validate_password(password){
-// Firebase only accepts lengths greater than 6
-if (password < 6) {
-    return false
-} else {
-    return true
+function validate_password(message) {
+    if(message < 6) {
+        return false
+    } else {
+        return true
+    }
 }
-}
+
 function validate_field(field) {
     if (field == null) {
         return false
@@ -161,3 +139,11 @@ function validate_field(field) {
         return true
     }
 }
+
+// function sendEmail( email, message ){
+//     // firebase.databse.sendrequest(cat(email,message))
+//         database_ref.child('emails/' + user.uid).set(user_data)
+
+//         alert('email sent')
+//     // emailjs.sendEmail(email, message)
+// }

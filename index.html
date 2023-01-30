@@ -6,7 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
-        <title>Login + Firebase Database</title>
         <!-- Cool google Fonts -->
     </head>
     <body>
@@ -28,6 +27,9 @@
                     <li>
                         <a href="#">Projects</a>
                     </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
                 </ul>
                 <div class="menu">
                     <div class="line1"></div>
@@ -36,43 +38,8 @@
                 </div>
         </nav>
 
-        <div id="content_container">
-            <div id="form_container">
-                <div id="form_header_container">
-                    <h2 id="form_header"> Login + Firebase Database </h2>
-                </div>
-
-                <div id="form_content_container">
-                    <div id="form_content_inner_container">
-                        <input type="text" id="full_name" placeholder="Full Name">
-                        <input type="email" id="email" placeholder="Email">
-                        <input type="password" id="password" placeholder="New Password">
-
-                        <input type="text" id="favorite_song" placeholder="The Best Song Ever">
-                        <input type="text" id="milk_before_cereal" placeholder="Milk Before Cereal? ( Yes | No )">
-
-                        <div id="button_container">
-                            <button onclick="login()">Login</button>
-                            <button onclick="register()">Register</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        
     </body>
-
-   
-        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>        
-        
-        <!-- // TODO: Add SDKs for Firebase products that you want to use
-        
-        https://firebase.google.com/docs/web/setup#available-libraries
-      
-        Your web app's Firebase configuration
-         -->
 
     <script src="index.js"></script>
 
